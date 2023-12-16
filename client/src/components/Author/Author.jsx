@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"; // for communicatin with API in react.js
 
 const Author = () => {
   const [authors, setAuthors] = useState([]);
@@ -10,10 +10,10 @@ const Author = () => {
   useEffect(() => {
     const fetchAuthors = async () => {
       try {
-        const response = await axios.get("http://localhost:3007/authors");
+        const response = await axios.get("http://localhost:3004/authors");
         setAuthors(response.data);
       } catch (error) {
-        console.error("Error fetching authors:", error);
+        console.error("An error has occured while fetching authors:", error);
       }
     };
 
@@ -21,7 +21,7 @@ const Author = () => {
   }, []);
 
   const handleSearch = () => {
-    axios.get(`http://localhost:3007/authors/${searchTerm}`)
+    axios.get(`http://localhost:3004/authors/${searchTerm}`)
       .then((response) => {
         setSearchResult(response.data);
         setError(null);

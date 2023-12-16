@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"; // communication of API
 import "./Books.css";
 
 const Home = () => {
@@ -10,18 +10,18 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3007/books")
+      .get("http://localhost:3004/books")
       .then((response) => {
         setData(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching data:", error);
+        console.error("It seems an error has occured while fetching the data:", error);
       });
   }, []);
 
   const handleSearch = () => {
     axios
-      .get(`http://localhost:3007/books/${searchTerm}`)
+      .get(`http://localhost:3004/books/${searchTerm}`)
       .then((response) => {
         setSearchResult(response.data);
         setError(null);
@@ -31,7 +31,7 @@ const Home = () => {
         setSearchResult(null);
         setError(
           error.response?.status === 404
-            ? "Book not found"
+            ? "Book requested is not found"
             : "Internal Server Error"
         );
       });
@@ -75,12 +75,12 @@ const Home = () => {
       </tbody>
     </table>
   );
-
+ //htmlFor is used to associate the label element with the input element.
   return (
     <div>
       <h2>Book List</h2>
       <div>
-        <label htmlFor="searchInput">Search by ID: </label>
+        <label htmlFor="searchInput">Search by ID: </label> 
         <input
           type="text"
           id="searchInput"
@@ -97,12 +97,12 @@ const Home = () => {
         </div>
       ) : searchResult ? (
         <div>
-          <h3>Search Result</h3>
+          <h3>Result from the Search</h3>
           {renderBooks([searchResult])}
         </div>
       ) : (
         <div>
-          <h3>All Books</h3>
+          <h3>All the Books</h3>
           {renderBooks(data)}
         </div>
       )}

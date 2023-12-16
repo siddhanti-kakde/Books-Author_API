@@ -19,8 +19,8 @@ const initializeServerAndDb = async (req, res) => {
       filename: dbpath,
       driver: sqlite3.Database,
     });
-    app.listen(3007, () => {
-      console.log("server started on 3007");
+    app.listen(3004, () => {
+      console.log("Your server started on 3004");
     });
   } catch (err) {
     console.log(err.message);
@@ -112,7 +112,7 @@ app.post("/books", async (req, res) => {
         '${onlineStores}'
       );`;
   const dbQuery = await db.run(addBookQuery);
-  res.send("Book Added Successfully!!");
+  res.send("Congratulations, the Book is added Successfully");
 });
 
 app.put("/books/:bookId", async (req, res) => {
@@ -151,7 +151,7 @@ app.put("/books/:bookId", async (req, res) => {
       book_id = ${bookId};`;
 
   await db.run(updateBookQuery);
-  res.send("Book updated");
+  res.send("The requested book with inputed bookId is updated");
 });
 
 app.delete("/books/:bookId", async (req, res) => {
@@ -163,20 +163,5 @@ DELETE FROM
 WHERE
     book_id = ${bookId};`;
   await db.run(deleteBookQuery);
-  res.send("Book deleted");
+  res.send("The requested book of mentioned Id is deleted");
 });
-
-// const myName = [
-//     "Hello",
-//     "hii"
-// ]
-
-// app.get("/route",(req,res) =>{
-//     // res.send("Heelooo Anushkaa");
-//     res.send(myName)
-//     console.log("heyy")
-// });
-
-// app.listen(5000, () => {
-//     console.log("Server started on port 5000");
-//   });
