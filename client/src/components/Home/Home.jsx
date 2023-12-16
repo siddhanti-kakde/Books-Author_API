@@ -12,7 +12,7 @@ const Home = () => {
         }}
       >
         <h1>AUTHOR & BOOK DATA</h1>
-        <h2>NAME: SIDDHANTI KAKE</h2>
+        <h2>NAME: SIDDHANTI KAKDE</h2>
         <h2>DEPARTMENT: CSE (Data Science)</h2>
         <h2>ROLL NUMBER: 25</h2>
         <h2>WEB DEVELOPMENT</h2>
