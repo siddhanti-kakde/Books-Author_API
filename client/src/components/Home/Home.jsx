@@ -11,11 +11,11 @@ const Home = () => {
           alignItems: "center",
         }}
       >
-        <h1>Author & Book Data Display</h1>
-        <h2>Name: Udit Shahu</h2>
-        <h2>Department: CSE (Data Science)</h2>
-        <h2>Roll number: 64</h2>
-        <h2>Web Development</h2>
+        <h1>AUTHOR & BOOK DATA</h1>
+        <h2>NAME: SIDDHANTI KAKE</h2>
+        <h2>DEPARTMENT: CSE (Data Science)</h2>
+        <h2>ROLL NUMBER: 25</h2>
+        <h2>WEB DEVELOPMENT</h2>
       </div>
       <div>
         <div
